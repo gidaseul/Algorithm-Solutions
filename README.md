@@ -53,11 +53,11 @@
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 51 | 2026-02-01 |
-| Programmers | 32 | 2026-02-01 |
-| SWEA | 5 | 2026-02-01 |
-| Codetree | 40 | 2026-02-01 |
-| LeetCode | 20 | 2026-02-01 |
+| Baekjoon | 51 | 2026-02-02 |
+| Programmers | 32 | 2026-02-02 |
+| SWEA | 5 | 2026-02-02 |
+| Codetree | 40 | 2026-02-02 |
+| LeetCode | 20 | 2026-02-02 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
@@ -68,7 +68,7 @@
 
 ## 🕒 Last Updated
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-02-01 14:58 UTC
+🕒 Last Auto Update: 2026-02-01 15:44 UTC
 <!-- UPDATED:END -->
 
 ---
