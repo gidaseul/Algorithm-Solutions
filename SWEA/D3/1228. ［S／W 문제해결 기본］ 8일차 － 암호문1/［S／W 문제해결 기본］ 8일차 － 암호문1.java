@@ -1,78 +1,48 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-/**
- * SW Expert Academy
- * @author triplenieun
- * 
- * 	@see #main(String[])
- * 	1. 10개의 테스트 케이스를 처리한다.
- * 	5. 각 테스트 케이스마다 맨 앞 10개의 숫자들만 출력한다. 
- * 
- * 	@see #inputTestCase()
- * 	2. 각 테스트 케이스마다,
- * 		2-1. 원본 암호문의 길이를 입력 받는다.
- * 		2-2. 연결리스트에 원본 암호문을 입력 받는다.
- * 		2-3. 명령어의 개수를 입력 받는다.
- * 		2-4. 명령어들을 입력 받는다.
- * 	
- * 		@see #insertCommand()
- * 		3. x 위치에서 y개의 숫자를 삽입한다.
- * 		
- * 		@see #deleteCommand()
- * 		4. x 위치 다음 y개의 숫자를 삭제한다.
- * */
-public class Solution {	
-	static BufferedReader br;
-	static StringTokenizer st;
+public class Solution
+{
 	static StringBuilder sb;
+	static StringTokenizer st;
+	static BufferedReader br;
 	
-	static List<Integer> codeList;
-	public static void inputTestCase() throws Exception {
-		codeList = new LinkedList<>();
-		int codeLen = Integer.parseInt(br.readLine().trim());
-		st = new StringTokenizer(br.readLine().trim());
-		for (int codeListIdx = 0; codeListIdx < codeLen; codeListIdx++) {
-			codeList.add(Integer.parseInt(st.nextToken()));
-		}
+	
+	
+	public static void main(String args[]) throws IOException
+	{
 		
-		int commandNum = Integer.parseInt(br.readLine().trim());
-		st = new StringTokenizer(br.readLine().trim());
-		for (int commandIdx = 0; commandIdx < commandNum; commandIdx++) {
-			String commandType = st.nextToken();
-			if (commandType.equals("I")) {
-				int x = Integer.parseInt(st.nextToken());
-				int y = Integer.parseInt(st.nextToken());
-				int [] s = new int [y];
-				for (int sIdx = 0; sIdx < y; sIdx++) 
-					s[sIdx] = Integer.parseInt(st.nextToken());
-				insertCommand(x, y, s);
-			}
-		}
-	}
-	
-	public static void insertCommand(int x, int y, int [] s) {
-		for (int sIdx = y - 1; sIdx >= 0; sIdx--) {
-			codeList.add(x, s[sIdx]);
-		}
-	}
-	
-	static int testCaseNum;
-	public static void main(String[] args) throws Exception {
 		br = new BufferedReader(new InputStreamReader(System.in));
-		sb = new StringBuilder();
-		testCaseNum = 10;
-		for (int testCaseIdx = 1; testCaseIdx <= testCaseNum; testCaseIdx++) {
-			inputTestCase();
-			sb.append("#" + testCaseIdx);
-			for (int codeListIdx = 0; codeListIdx < 10; codeListIdx++) {
-				sb.append(" " + codeList.get(codeListIdx));
+		int T = 10;
+		
+		for(int test_case = 1; test_case <= T; test_case++)
+		{	
+			int numberRange = Integer.parseInt(br.readLine());
+			List<String> passWordList = new LinkedList<>();
+			st = new StringTokenizer(br.readLine());
+			for(int i=0; i<numberRange;i++) {
+				passWordList.add(st.nextToken());
 			}
-			sb.append("\n");
+			int number = Integer.parseInt(br.readLine());
+			st = new StringTokenizer(br.readLine());
+			for(int action = 0; action<number; action++) {
+				String cmd = st.nextToken();
+				
+			
+				if(cmd.equals("I")) {
+					int x = Integer.parseInt(st.nextToken()); // 인덱스 위치
+					int y = Integer.parseInt(st.nextToken()); // 가져올 숫자
+					
+					for(int next=0; next<y;next++) {
+						passWordList.add(x+next,st.nextToken());
+					}
+				}
+					
+			}
+			
+			List<String> sub = passWordList.subList(0, 10);
+			String result = String.join(" ",sub);
+			System.out.println("#"+test_case+" "+result); 
 		}
-		System.out.println(sb.toString());
 	}
 }
