@@ -1,57 +1,51 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-/**
- *	SW Expert Academy
- * 	@author triplenieun
- *		
- *		@see #main(String[])
- * 		1. N과 M을 입력 받는다.		
+/*
+ * SW Expert Academy 
+ * @author Da_seul
  * 
- * 		@see #executeCommand(int cnt)
- * 		2. 다음 기능들을 수행한다.
- * 			2-1. 1~N까지의 수에서 M만큼 선택한다.
+ * 	@see #main(String[])
+ * 		
  */
-public class Main {
+public class Main
+{
+	
 	static BufferedReader br;
 	static StringTokenizer st;
 	static StringBuilder sb;
-	
-	static boolean[] isSelected;
-	static int[] numbers;
-	public static void executeCommand(int cnt) {
-		if (cnt == M) {
-			for (int j = 0; j < M; j++) {
-				sb.append(numbers[j] + " ");
+	static boolean[] visited;
+	static void perm(int n, int r, List<Integer> path) {
+
+		
+		// 종료 조건
+		if(path.size() == r) {
+			sb = new StringBuilder();
+			for (int x : path) {
+				sb.append(x).append(" ");
 			}
-			sb.append("\n");
-		} else {
-			for (int i = 1; i <= N; i++) {
-				if (isSelected[i]) continue;
-				numbers[cnt] = i;
-				isSelected[i] = true;
-				executeCommand(cnt + 1);
-				isSelected[i] = false;
-			}
+			System.out.println(sb.toString().trim());
+			return;
+		}
+		
+		// 다음 숫자 선택
+		for(int i =1; i<=n; i++) {
+			if(visited[i]) continue;
+			visited[i] = true;
+			path.add(i);
+			perm(n,r,path);
+			path.remove(path.size()-1);
+			visited[i] = false;
 		}
 	}
-	
-	static int N;
-	static int M;
-	public static void main(String[] args) throws Exception {
+	public static void main(String args[]) throws IOException
+	{
 		br = new BufferedReader(new InputStreamReader(System.in));
-		sb = new StringBuilder();
-		st = new StringTokenizer(br.readLine().trim());
+		st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		visited = new boolean[N+1];
 		
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-		
-		int cnt = 0;
-		isSelected = new boolean[N + 1];
-		numbers = new int[M];
-		executeCommand(cnt);
-		
-		System.out.println(sb.toString());
+		perm(N,M,new ArrayList<>());
 	}
 }
