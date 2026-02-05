@@ -4,108 +4,121 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * @author Da_seul (Modified)
- * * 1. 테스트 케이스 개수를 입력받는다.
+ * 1. 테스트 케이스 개수를 입력받는다.
  * 2. 각 테스트 케이스마다,
- * 2-1. 맵의 크기(mapSize), 채취할 수 있는 벌통 개수(M), 최대 채취량(C)을 입력받는다.
- * 2-2. 벌꿀 정보를 입력받는다.
- * 3. 두 명의 작업자가 채취할 수 있는 위치를 선정한다. (조합/완전탐색)
- * 3-1. 첫 번째 작업자의 위치를 먼저 결정하고, 겹치지 않게 두 번째 작업자의 위치를 결정한다.
- * 3-2. 각 작업자가 선택한 M개의 벌통 범위 내에서, 최대 채취량(C)을 넘지 않으면서 수익(벌꿀의 제곱 합)이 최대가 되는 부분집합을 구한다.
- * 4. 두 작업자의 수익 합 중 최대값을 갱신한다.
+ * 2-1. 맵의 크기, 채취할 수 있는 벌집의 개수, 채취할 수 있는 최대량을 입력받는다.
+ * 2-2. 벌꿀 정보를 입력받는다. (1차원 배열로 활용)
+ * 3. 작업자가 채취할 수 있는 경우를 살펴본다. (조합)
+ * 3-1. 모든 작업자가 채취할 위치를 선정했으면 -> 계산
  */
 public class Solution {
+    static BufferedReader br;
+    static StringTokenizer st;
+    static StringBuilder sb;
 
-    static int mapSize, M, maxHoney;
-    static int[][] honeyMap;
-    static int maxProfitByWorker; // 각 범위 내에서 얻을 수 있는 최대 수익 임시 저장용
+    static int mapSize, collectHoneyCombCount, maxHoneyCount;
+    static int[] honeyMap;
+    static int[] startCollectIndexArray; // 작업자별 시작 인덱스
+    static final int WORKER_COUNT = 2;
     static int totalMaxProfit;
+    static int maxProfitByWorker; // 부분집합 계산용 임시 변수
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        br = new BufferedReader(new InputStreamReader(System.in));
+        sb = new StringBuilder();
+
         int testCase = Integer.parseInt(br.readLine().trim());
-
         for (int tc = 1; tc <= testCase; tc++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            mapSize = Integer.parseInt(st.nextToken());
-            M = Integer.parseInt(st.nextToken());
-            maxHoney = Integer.parseInt(st.nextToken());
-
-            // 2-2. 벌꿀 정보 입력
-            honeyMap = new int[mapSize][mapSize];
-            for (int i = 0; i < mapSize; i++) {
-                st = new StringTokenizer(br.readLine());
-                for (int j = 0; j < mapSize; j++) {
-                    honeyMap[i][j] = Integer.parseInt(st.nextToken());
-                }
-            }
-
             totalMaxProfit = 0;
-            selectWorkers(); // 3. 작업자 위치 선정 시작
+            inputTestCase();
             
-            // 4. 최대 이익 출력
-            System.out.println("#" + tc + " " + totalMaxProfit);
+            startCollectIndexArray = new int[WORKER_COUNT];
+            // 3. 조합 시작
+            collectHoney(0, 0);
+            
+            sb.append("#").append(tc).append(" ").append(totalMaxProfit).append("\n");
         }
+        System.out.println(sb);
     }
 
-    /**
-     * 3. 작업자가 채취할 수 있는 경우를 살펴본다. (완전 탐색)
-     */
-    public static void selectWorkers() {
-        // 첫 번째 작업자의 시작 위치 (r1, c1)
-        for (int r1 = 0; r1 < mapSize; r1++) {
-            for (int c1 = 0; c1 <= mapSize - M; c1++) {
-                
-                // 두 번째 작업자의 시작 위치 (r2, c2)
-                for (int r2 = 0; r2 < mapSize; r2++) {
-                    for (int c2 = 0; c2 <= mapSize - M; c2++) {
-                        
-                        // 3-1-1-2. 영역이 겹치는지 확인 (상품성이 떨어지면 안됨)
-                        // 같은 행일 때만 열 범위를 체크하여 겹침 방지
-                        if (r1 == r2 && (c1 + M > c2 && c2 + M > c1)) continue;
+    public static void inputTestCase() throws IOException {
+        st = new StringTokenizer(br.readLine().trim());
+        mapSize = Integer.parseInt(st.nextToken());
+        collectHoneyCombCount = Integer.parseInt(st.nextToken());
+        maxHoneyCount = Integer.parseInt(st.nextToken());
 
-                        // 각 작업자가 해당 영역에서 얻을 수 있는 최대 수익 계산
-                        int profit1 = calculateMaxProfitForRange(r1, c1);
-                        int profit2 = calculateMaxProfitForRange(r2, c2);
-
-                        // 전체 최대 수익 갱신
-                        totalMaxProfit = Math.max(totalMaxProfit, profit1 + profit2);
-                    }
-                }
+        honeyMap = new int[mapSize * mapSize];
+        for (int i = 0; i < mapSize; i++) {
+            st = new StringTokenizer(br.readLine().trim());
+            for (int j = 0; j < mapSize; j++) {
+                honeyMap[i * mapSize + j] = Integer.parseInt(st.nextToken());
             }
         }
     }
 
-    /**
-     * 3-1-1-3. 최대 채취량을 넘길 수 없으므로, 범위 내에서 최적의 부분집합 계산
-     */
-    private static int calculateMaxProfitForRange(int r, int c) {
-        maxProfitByWorker = 0;
-        findBestSubset(r, c, 0, 0, 0);
-        return maxProfitByWorker;
+    // 3-1-1-1. 채취할 때 인덱스를 벗어나거나 행이 바뀌면 안 됨
+    public static boolean isInvalidRange(int startIdx) {
+        int currentRow = startIdx / mapSize;
+        int lastRow = (startIdx + collectHoneyCombCount - 1) / mapSize;
+        
+        // 범위를 벗어나거나 가로로 연속되지 않고 다음 줄로 넘어가는 경우
+        return (startIdx + collectHoneyCombCount > mapSize * mapSize) || (currentRow != lastRow);
     }
 
-    /**
-     * 부분집합을 이용한 수익 계산
-     * @param count 현재 고려 중인 벌통 인덱스 (0 ~ M-1)
-     * @param sum 현재까지 채취한 벌꿀의 합계
-     * @param profit 현재까지 계산된 수익(각 벌꿀의 제곱 합)
-     */
-    private static void findBestSubset(int r, int c, int count, int sum, int profit) {
-        // 3-1-1-3. 최대 채취량을 넘기면 중단
-        if (sum > maxHoney) return;
+    // 3-1-1-2. 작업자 간 영역이 겹치면 안 됨 (상품성 저하 방지)
+    public static boolean isDuplicated() {
+        int start1 = startCollectIndexArray[0];
+        int end1 = start1 + collectHoneyCombCount - 1;
+        int start2 = startCollectIndexArray[1];
+        int end2 = start2 + collectHoneyCombCount - 1;
 
-        // M개의 벌통을 모두 고려했을 때 수익 갱신
-        if (count == M) {
+        // 두 선분이 겹치는지 확인하는 조건
+        return (start1 <= end2 && start2 <= end1);
+    }
+
+    // 3-1-1-3. 최대 채취량을 조절하여 최대 이익 계산 (부분집합)
+    public static void calculateBestProfit(int startIdx, int count, int sum, int profit) {
+        if (sum > maxHoneyCount) return; // 최대량 초과 시 탈락
+        
+        if (count == collectHoneyCombCount) {
             maxProfitByWorker = Math.max(maxProfitByWorker, profit);
             return;
         }
 
-        // 현재 벌통을 선택하는 경우
-        int currentHoney = honeyMap[r][c + count];
-        findBestSubset(r, c, count + 1, sum + currentHoney, profit + (currentHoney * currentHoney));
-        
-        // 현재 벌통을 선택하지 않는 경우
-        findBestSubset(r, c, count + 1, sum, profit);
+        // 현재 벌통 선택
+        int honey = honeyMap[startIdx + count];
+        calculateBestProfit(startIdx, count + 1, sum + honey, profit + (honey * honey));
+        // 현재 벌통 선택 안 함
+        calculateBestProfit(startIdx, count + 1, sum, profit);
+    }
+
+    public static void collectHoney(int workerIndex, int honeyCombIndex) {
+        // 3-1. 모든 작업자의 위치 선정이 끝난 경우
+        if (workerIndex == WORKER_COUNT) {
+            if (isDuplicated()) return;
+
+            int currentTotal = 0;
+            for (int i = 0; i < WORKER_COUNT; i++) {
+                maxProfitByWorker = 0;
+                // 각 작업자 구역에서 얻을 수 있는 최적의 이익 계산
+                calculateBestProfit(startCollectIndexArray[i], 0, 0, 0);
+                currentTotal += maxProfitByWorker;
+            }
+            totalMaxProfit = Math.max(totalMaxProfit, currentTotal);
+            return;
+        }
+
+        // 3-2. 모든 위치 확인 종료
+        if (honeyCombIndex >= mapSize * mapSize) return;
+
+        // 3-3. 조합 진행
+        // 현재 위치를 해당 작업자의 시작점으로 선택 (유효할 경우에만)
+        if (!isInvalidRange(honeyCombIndex)) {
+            startCollectIndexArray[workerIndex] = honeyCombIndex;
+            collectHoney(workerIndex + 1, honeyCombIndex + 1);
+        }
+
+        // 현재 위치를 선택하지 않고 다음 칸 확인
+        collectHoney(workerIndex, honeyCombIndex + 1);
     }
 }
