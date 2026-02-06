@@ -35,46 +35,27 @@ public class Solution
 					kcalRecord[i] = Integer.parseInt(st.nextToken());
 				}
 				
-				boolean[] isVisted = new boolean[N];
-				for(int r=1; r<=N; r++) {
-					combination(isVisted, 0, r);
-				}
+				generateSubset(0,0,0);
+				
 				sb.append("#").append(t).append(" ").append(maxScore).append("\n");
 				System.out.print(sb);
 		}
 		
 	}
 	// 매번 visited 배열로 선택할 상태들을 이야기 함.
-	static void combination(boolean[] visited, int start, int r) {		
+	static void generateSubset(int idx, int cuurentScore, int currentKcal) {		
 		
-		if (r==0) {
-			// 계산 로직 - 함수 호출
-			calculate(visited);
+		if (currentKcal > L) return;
+		
+		// 전체 판단 진행할 경우
+		if (idx == N) {
+			maxScore = Math.max(maxScore, cuurentScore);
 			return;
 		}
-		
-		for (int i=start; i<N; i++) {
-			visited[i] = true;
-			combination(visited,i+1,r-1);
-			visited[i] = false;
-		}
-	}
-	
-	
-	static void calculate(boolean[] visited) {
-		int totalScore = 0;
-        int totalKcal = 0;
-        
-        for (int i = 0; i < N; i++) {
-            if (visited[i]) {
-                totalScore += scoreRecord[i];
-                totalKcal += kcalRecord[i];
-            }
-        }
-        
-        // 칼로리 제한 조건을 만족할 때만 최대 점수 갱신
-        if (totalKcal <= L) {
-            maxScore = Math.max(maxScore, totalScore);
-        }
+		// 현재 재료를 선택할 경우
+		generateSubset(idx+1,cuurentScore+scoreRecord[idx], currentKcal + kcalRecord[idx]);
+		// 현재 재료를 선택하지 않는 경우
+		generateSubset(idx+1,cuurentScore, currentKcal);
+
 	}
 }
