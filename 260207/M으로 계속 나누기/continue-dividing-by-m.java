@@ -8,9 +8,10 @@ public class Main {
         
         // Please write your code here.
 
-        while (N >= 0 ){
+        while (N  >= 1 ){
             System.out.println(N);
             N /= M;
+            
         }
 
     }
