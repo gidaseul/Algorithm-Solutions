@@ -13,7 +13,6 @@ public class sample {
 
         if (A_math > B_math && A_English >B_English ){
             System.out.println("1");
-        }else  System.out.println("0");
-
+        }else  {System.out.println("0");}
     }
 }
