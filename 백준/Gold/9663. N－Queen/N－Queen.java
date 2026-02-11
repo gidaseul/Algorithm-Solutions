@@ -1,58 +1,69 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
- 
+import java.io.*;
+import java.util.*;
+
+/**
+ * SW Expert Academy : 2806. N-Queen
+ *
+ *
+ *  문제 설명:
+ *  1. testCase 입력받기
+ *      1-1. testCase 마다 N 개의 N*N 만큼 N개의 퀸 만들기
+ *      1-2. 1<= N <= 10
+ *
+ *
+ *  해결 접근:
+ *  1. 같은 열에 있는 것과, 그 다음 행의 대각선 들이 각각 이미 있는지 확인
+ *  2. 열, 대각선 1, 대각선 2 구하기
+ *      2-1. 열은 같은 열에 이미 퀸이 있는지 확인 col[c]
+ *      2-2. diag1 대각선은 (0,2),(1,1),(2,0) 이러한 방향이면 row+col 값 동일
+ *      2-3. diag2 대각선은 (2,0),(3,1),(4,2) 이러한 방향이라면 row-col 하면 음수 값으로 모두 동일함, 이때 +N을 해서 인덱스 보정함.
+ *  알고리즘
+ */
 public class Main {
- 
-	public static int[] arr;
-	public static int N;
-	public static int count = 0;
- 
-	public static void main(String[] args) throws IOException {
- 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine());
-		arr = new int[N];
- 
-		nQueen(0);
-		System.out.println(count);
- 
-	}
- 
-	public static void nQueen(int depth) {
-		// 모든 원소를 다 채운 상태면 count 증가 및 return 
-		if (depth == N) {
-			count++;
-			return;
-		}
- 
-		for (int i = 0; i < N; i++) {
-			arr[depth] = i;
-			// 놓을 수 있는 위치일 경우 재귀호출
-			if (Possibility(depth)) {
-				nQueen(depth + 1);
-			}
-		}
- 
-	}
- 
-	public static boolean Possibility(int col) {
- 
-		for (int i = 0; i < col; i++) {
-			// 해당 열의 행과 i열의 행이 일치할경우 (같은 행에 존재할 경우) 
-			if (arr[col] == arr[i]) {
-				return false;
-			} 
-			
-			/*
-			 * 대각선상에 놓여있는 경우
-			 * (열의 차와 행의 차가 같을 경우가 대각선에 놓여있는 경우다)
-			 */
-			else if (Math.abs(col - i) == Math.abs(arr[col] - arr[i])) {
-				return false;
-			}
-		}
-		
-		return true;
-	}
+
+
+    static BufferedReader br;
+    static StringTokenizer st;
+    static StringBuilder sb;
+
+    static int N, T, count;
+    static boolean[] col, diag1, diag2;
+
+    public static void main(String[] args) throws Exception {
+
+        br = new BufferedReader(new InputStreamReader(System.in));
+        st = new StringTokenizer(br.readLine().trim());
+        N = Integer.parseInt(st.nextToken());
+        col = new boolean[N];
+        count =0;
+
+        // 최대 인덱스 크기는 2N
+        // 대각선의 개수는 row+col, row-col 값의 범위인데
+        // 이는 각각 나올 수 있는 경우의 수 최대가 그러함.
+        diag1 = new boolean[2 * N];
+        diag2 = new boolean[2 * N];
+
+
+        dfs(0);
+        System.out.println(count);
+
+        
+    }
+
+    static void dfs(int row) {
+        if (row == N) {
+            count++;
+            return;
+        }
+
+        for (int c=0; c<N; c++){
+            if(col[c] || diag1[row+c] || diag2[row-c+N]) continue;
+
+            col[c] = diag1[row+c] = diag2[row -c +N] = true;
+
+            dfs(row+1);
+
+            col[c] = diag1[row+c] = diag2[row-c+N] = false;
+        }
+    }
 }
