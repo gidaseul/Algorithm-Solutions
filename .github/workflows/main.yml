@@ -9,7 +9,6 @@ on:
 permissions:
   contents: write
 
-
 jobs:
   maintain:
     runs-on: ubuntu-latest
@@ -19,7 +18,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0   # 🔥 git log 날짜 정확히 가져오려면 필요
 
+      # -----------------------------
+      # Move today's Codetree folder
+      # -----------------------------
       - name: Move today's Codetree folder
         shell: bash
         run: |
@@ -29,22 +32,32 @@ jobs:
             git mv "$TODAY" "Codetree/$TODAY"
           fi
 
+      # -----------------------------
+      # Python setup
+      # -----------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Update README statistics
-        run: |
-          python scripts/update_readme.py
+      - name: Install dependencies
+        run: pip install requests
 
+      # -----------------------------
+      # Update README
+      # -----------------------------
+      - name: Update README statistics
+        run: python scripts/update_readme.py
+
+      # -----------------------------
+      # Commit changes if needed
+      # -----------------------------
       - name: Commit and push if changed
         run: |
           if ! git diff --quiet; then
-            git add README.md
+            git add .
             git config user.name "github-actions"
             git config user.email "github-actions@github.com"
-            git commit -m "chore: daily stats update"
+            git commit -m "chore: daily auto update"
             git push
           fi
-
