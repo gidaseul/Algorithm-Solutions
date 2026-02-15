@@ -155,7 +155,11 @@ def compute_stats():
 # =========================
 
 def replace_block(text: str, start: str, end: str, content: str) -> str:
-    return text.split(start)[0] + start + "\n" + content + "\n" + end + text.split(end)[1]
+    pattern = re.compile(
+        f"{re.escape(start)}.*?{re.escape(end)}",
+        re.DOTALL
+    )
+    return pattern.sub(f"{start}\n{content}\n{end}", text)
 
 
 def update_readme(stats: dict):
