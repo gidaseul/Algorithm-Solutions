@@ -8,38 +8,47 @@
 
 ## 🧩 Platforms
 
-<p align="center">
+<div align="center">
 
 <a href="./백준">
-  <img src="./assets/logos/boj.png" height="55"/><br/>
-  <b>Baekjoon</b>
+  <img src="./assets/logos/boj.png" width="100%" style="max-width:900px;"/>
+  <br/>
+  <h3>Baekjoon</h3>
 </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br/>
 
 <a href="./프로그래머스">
-  <img src="./assets/logos/programmers.png" height="55"/><br/>
-  <b>Programmers</b>
+  <img src="./assets/logos/programmers.png" width="100%" style="max-width:900px;"/>
+  <br/>
+  <h3>Programmers</h3>
 </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br/>
 
 <a href="./SWEA">
-  <img src="./assets/logos/swea.png" height="55"/><br/>
-  <b>SWEA</b>
+  <img src="./assets/logos/swea.png" width="100%" style="max-width:900px;"/>
+  <br/>
+  <h3>SWEA</h3>
 </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br/>
 
 <a href="./Codetree">
-  <img src="./assets/logos/codetree.png" height="55"/><br/>
-  <b>Codetree</b>
+  <img src="./assets/logos/codetree.png" width="100%" style="max-width:900px;"/>
+  <br/>
+  <h3>Codetree</h3>
 </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br/>
 
 <a href="./Leetcode">
-  <img src="./assets/logos/leetcode.png" height="55"/><br/>
-  <b>LeetCode</b>
+  <img src="./assets/logos/leetcode.png" width="100%" style="max-width:900px;"/>
+  <br/>
+  <h3>LeetCode</h3>
 </a>
 
-</p>
+</div>
 
 
 ---
