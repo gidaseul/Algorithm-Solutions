@@ -74,15 +74,15 @@
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 0 | N/A |
-| Programmers | 0 | N/A |
-| SWEA | 0 | N/A |
-| Codetree | 0 | N/A |
-| LeetCode | 0 | N/A |
+| Baekjoon | 69 | 2026-02-15 |
+| Programmers | 32 | 2026-01-27 |
+| SWEA | 30 | 2026-02-16 |
+| Codetree | 47 | 2026-02-07 |
+| LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 0
+**Total Problems:** 198
 <!-- TOTAL:END -->
 
 ---
@@ -90,7 +90,8 @@
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
-Auto calculated by GitHub API
+- **Java**: 75.5%
+- **Python**: 24.5%
 <!-- LANG:END -->
 
 ---
@@ -98,7 +99,7 @@ Auto calculated by GitHub API
 ## 🏆 Baekjoon Tier
 
 <!-- TIER:START -->
-Auto fetched from solved.ac
+🏆 Baekjoon Tier: **Gold V**
 <!-- TIER:END -->
 
 ---
@@ -106,7 +107,7 @@ Auto fetched from solved.ac
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-Auto update
+🕒 Last Auto Update: 2026-02-16 02:22 KST
 <!-- UPDATED:END -->
 
 ---
