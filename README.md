@@ -1,5 +1,25 @@
 # Algorithm Solutions 🧠🔥
 
+<div align="center">
+
+<br/>
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=hye0328)](https://solved.ac/hye0328)
+
+<br/><br/>
+
+</div>
+
+---
+
+## 🏆 Baekjoon Tier
+
+<!-- TIER:START -->
+🏆 Baekjoon Tier: **Gold V**
+<!-- TIER:END -->
+
+---
+
 > 여러 알고리즘 플랫폼에서 풀이한 문제를 **하나의 레포지토리로 통합 관리**합니다.  
 > 문제 수 · 최신 커밋 · 언어 통계 · 백준 티어는  
 > **GitHub Actions 기반 자동 집계 시스템**으로 관리됩니다.
@@ -93,14 +113,6 @@
 - **Java**: 75.5%
 - **Python**: 24.5%
 <!-- LANG:END -->
-
----
-
-## 🏆 Baekjoon Tier
-
-<!-- TIER:START -->
-🏆 Baekjoon Tier: **Gold V**
-<!-- TIER:END -->
 
 ---
 
