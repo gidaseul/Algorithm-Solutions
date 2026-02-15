@@ -1,87 +1,97 @@
 # Algorithm Solutions 🧠🔥
 
-> 여러 알고리즘 플랫폼에서 풀이한 문제를 **하나의 레포지토리**로 통합 관리합니다.  
-> 문제 수, 난이도, 최근 업데이트는 **GitHub Actions로 자동 집계**됩니다.
-> (아직 수정 중에 있습니다.)
-> 오류 : last commit 날짜 , 이미지 파일, 이전에 풀었던 내용 추가처리 못함(커밋한 시점으로부터 진행함), 사용 언어의 집계는 자동으로 측정하기 때문에 사용하고 있는 언어를 표시하면 될 듯(python, java, sql)
-> 
+> 여러 알고리즘 플랫폼에서 풀이한 문제를 **하나의 레포지토리로 통합 관리**합니다.  
+> 문제 수 · 최신 커밋 · 언어 통계 · 백준 티어는  
+> **GitHub Actions 기반 자동 집계 시스템**으로 관리됩니다.
 
 ---
 
-## 🧩 Platforms Overview
+## 🧩 Platforms
 
 <p align="center">
-  <a href="./백준">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/BOJ_logo.png" height="45"/><br/>
-    <b>Baekjoon</b>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
 
-  <a href="./프로그래머스">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Programmers_logo.png" height="45"/><br/>
-    <b>Programmers</b>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="./백준">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/BOJ_logo.png" height="50"/><br/>
+  <b>Baekjoon</b>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <a href="./SWEA">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Samsung_Logo.svg" height="45"/><br/>
-    <b>SWEA</b>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="./프로그래머스">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Programmers_logo.png" height="50"/><br/>
+  <b>Programmers</b>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <a href="./Codetree">
-    <img src="https://static.codetree.ai/logo.png" height="45"/><br/>
-    <b>Codetree</b>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="./SWEA">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Samsung_Logo.svg" height="50"/><br/>
+  <b>SWEA</b>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <a href="./Leetcode">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" height="45"/><br/>
-    <b>LeetCode</b>
-  </a>
+<a href="./Codetree">
+  <img src="https://static.codetree.ai/logo.png" height="50"/><br/>
+  <b>Codetree</b>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="./Leetcode">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" height="50"/><br/>
+  <b>LeetCode</b>
+</a>
+
 </p>
 
 ---
 
-## 💻 Language Usage
+# 📊 Problem Statistics
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-71%25-3776AB?logo=python&logoColor=white&style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Java-29%25-007396?logo=java&logoColor=white&style=for-the-badge"/>
-</p>
-
----
-
-## 📊 Problem Statistics
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 69 | 2026-02-15 |
-| Programmers | 32 | 2026-02-15 |
-| SWEA | 29 | 2026-02-15 |
-| Codetree | 47 | 2026-02-15 |
-| LeetCode | 20 | 2026-02-15 |
+| Baekjoon | 0 | N/A |
+| Programmers | 0 | N/A |
+| SWEA | 0 | N/A |
+| Codetree | 0 | N/A |
+| LeetCode | 0 | N/A |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total:** 197
+**Total Problems:** 0
 <!-- TOTAL:END -->
 
 ---
 
+## 🧠 Language Distribution
+
+<!-- LANG:START -->
+Auto calculated by GitHub API
+<!-- LANG:END -->
+
+---
+
+## 🏆 Baekjoon Tier
+
+<!-- TIER:START -->
+Auto fetched from solved.ac
+<!-- TIER:END -->
+
+---
+
 ## 🕒 Last Updated
+
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-02-15 15:00 UTC
+Auto update
 <!-- UPDATED:END -->
 
 ---
 
-## ⚙️ Automation Notes
+## ⚙️ Automation System
 
-- 문제 수 / 난이도 / 최근 커밋 날짜는 **GitHub Actions**로 자동 갱신됩니다.
-- **Baekjoon · Programmers · SWEA**
-  - BaekjoonHub 기반 **자동 커밋**
-- **LeetCode · Codetree**
-  - 개별 레포 → `git subtree` 로 통합 관리
-- README는  
-  **사람이 구조 관리 + Actions가 수치만 치환**하는 방식입니다.
+- 📌 Platform별 문제 수 자동 집계  
+- 📌 각 디렉토리 최신 커밋 날짜 자동 반영  
+- 📌 GitHub API 기반 언어 점유율 계산  
+- 📌 solved.ac API 기반 백준 티어 자동 조회  
+- 📌 매일 GitHub Actions 스케줄 실행  
+
+README는  
+**구조는 수동 관리, 수치는 자동 생성하는 deterministic 시스템**으로 동작합니다.
