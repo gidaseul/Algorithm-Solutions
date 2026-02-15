@@ -107,6 +107,32 @@
 
 ---
 
+## 🚀 Platform Progress
+
+<div align="center">
+
+<img src="./assets/bj_progress.svg" width="700"/>
+
+<br/><br/>
+
+<img src="./assets/programmers_progress.svg" width="700"/>
+
+<br/><br/>
+
+<img src="./assets/swea_progress.svg" width="700"/>
+
+<br/><br/>
+
+<img src="./assets/codetree_progress.svg" width="700"/>
+
+<br/><br/>
+
+<img src="./assets/leetcode_progress.svg" width="700"/>
+
+</div>
+
+--
+
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
