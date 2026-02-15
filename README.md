@@ -11,35 +11,36 @@
 <p align="center">
 
 <a href="./백준">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/BOJ_logo.png" height="50"/><br/>
+  <img src="./assets/logos/boj.png" height="55"/><br/>
   <b>Baekjoon</b>
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <a href="./프로그래머스">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Programmers_logo.png" height="50"/><br/>
+  <img src="./assets/logos/programmers.png" height="55"/><br/>
   <b>Programmers</b>
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <a href="./SWEA">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Samsung_Logo.svg" height="50"/><br/>
+  <img src="./assets/logos/swea.png" height="55"/><br/>
   <b>SWEA</b>
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <a href="./Codetree">
-  <img src="https://static.codetree.ai/logo.png" height="50"/><br/>
+  <img src="./assets/logos/codetree.png" height="55"/><br/>
   <b>Codetree</b>
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <a href="./Leetcode">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" height="50"/><br/>
+  <img src="./assets/logos/leetcode.png" height="55"/><br/>
   <b>LeetCode</b>
 </a>
 
 </p>
+
 
 ---
 
