@@ -11,7 +11,10 @@
 <div align="center">
 
 <a href="./백준">
-  <img src="./assets/logos/boj.png" width="100%" style="max-width:900px;"/>
+  <img
+    src="./assets/logos/boj.png"
+    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
+  />
   <br/>
   <h3>Baekjoon</h3>
 </a>
@@ -19,7 +22,10 @@
 <br/>
 
 <a href="./프로그래머스">
-  <img src="./assets/logos/programmers.png" width="100%" style="max-width:900px;"/>
+  <img
+    src="./assets/logos/programmers.png"
+    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
+  />
   <br/>
   <h3>Programmers</h3>
 </a>
@@ -27,7 +33,10 @@
 <br/>
 
 <a href="./SWEA">
-  <img src="./assets/logos/swea.png" width="100%" style="max-width:900px;"/>
+  <img
+    src="./assets/logos/swea.png"
+    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
+  />
   <br/>
   <h3>SWEA</h3>
 </a>
@@ -35,7 +44,10 @@
 <br/>
 
 <a href="./Codetree">
-  <img src="./assets/logos/codetree.png" width="100%" style="max-width:900px;"/>
+  <img
+    src="./assets/logos/codetree.png"
+    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
+  />
   <br/>
   <h3>Codetree</h3>
 </a>
@@ -43,12 +55,16 @@
 <br/>
 
 <a href="./Leetcode">
-  <img src="./assets/logos/leetcode.png" width="100%" style="max-width:900px;"/>
+  <img
+    src="./assets/logos/leetcode.png"
+    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
+  />
   <br/>
   <h3>LeetCode</h3>
 </a>
 
 </div>
+
 
 
 ---
