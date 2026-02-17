@@ -94,7 +94,7 @@
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 70 / 163 | 2026-02-17 |
+| Baekjoon | 70 / 164 | 2026-02-17 |
 | Programmers | 32 | 2026-01-27 |
 | SWEA | 31 | 2026-02-17 |
 | Codetree | 47 | 2026-02-07 |
@@ -150,7 +150,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-02-17 20:22 KST
+🕒 Last Auto Update: 2026-02-18 00:36 KST
 <!-- UPDATED:END -->
 
 ---
