@@ -59,8 +59,11 @@ def scan_codetree():
 
 
 def scan_leetcode():
-    # Leetcode도 nested 구조로 통일
-    return scan_nested(Path("Leetcode"))
+    base = Path("Leetcode")
+    if not base.exists():
+        return []
+    return [p for p in base.iterdir() if p.is_dir()]
+
 
 
 # =========================
