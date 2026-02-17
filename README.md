@@ -108,8 +108,7 @@
 ---
 
 > ⚠️ **Data Sync Notice**
-> - LeetCode repository sync is currently in progress.
-> - 일부 Baekjoon 문제는 과거 업로드 이력 정리 중으로, 통계에 부분 반영되어 있습니다.
+> - 일부 Baekjoon 문제는 과거 업로드 이력 정리 중으로, 통계에 부분 반영되어 있습니다. (추후에 업데이트 예정에 있습니다.)
 > - 집계 데이터는 GitHub Actions 스케줄 실행 시 순차적으로 보완됩니다.
 
 ---
