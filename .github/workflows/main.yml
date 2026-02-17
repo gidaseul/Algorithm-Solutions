@@ -21,6 +21,16 @@ jobs:
           fetch-depth: 0   # 🔥 git log 날짜 정확히 가져오려면 필요
 
       # -----------------------------
+      # Clone external Leetcode repo
+      # -----------------------------
+      - name: Clone Leetcode repository
+        run: |
+          if [ ! -d "Leetcode" ]; then
+            git clone https://github.com/gidaseul/Leetcode.git Leetcode
+          fi
+
+
+      # -----------------------------
       # Move today's Codetree folder
       # -----------------------------
       - name: Move today's Codetree folder
