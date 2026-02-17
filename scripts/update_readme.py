@@ -59,8 +59,8 @@ def scan_codetree():
 
 
 def scan_leetcode():
-    base = Path("Leetcode")
-    return [p for p in base.iterdir() if p.is_dir()] if base.exists() else []
+    # Leetcode도 nested 구조로 통일
+    return scan_nested(Path("Leetcode"))
 
 
 # =========================
@@ -86,7 +86,14 @@ def get_language_stats():
             timeout=5
         )
         data = r.json()
+
+        if not data:
+            return {}
+
         total = sum(data.values())
+        if total == 0:
+            return {}
+
         return {
             k: round(v / total * 100, 1)
             for k, v in data.items()
@@ -119,7 +126,7 @@ def generate_progress_svg(name, current, total, color, filename):
   </text>
 </svg>
 """
-    (ASSETS_PATH / filename).write_text(svg)
+    (ASSETS_PATH / filename).write_text(svg, encoding="utf-8")
 
 
 # =========================
@@ -129,6 +136,9 @@ def generate_progress_svg(name, current, total, color, filename):
 def compute_stats():
     stats = {}
 
+    # -------------------------
+    # Baekjoon (부분 집계)
+    # -------------------------
     bj = scan_nested(Path("백준"))
     bj_repo = len(bj)
     bj_total = get_baekjoon_total("hye0328")
@@ -146,20 +156,24 @@ def compute_stats():
         "last": last_commit_from_folders(bj),
     }
 
-    # Other platforms (100%)
-    for name, folder, color in [
+    # -------------------------
+    # Other Platforms
+    # -------------------------
+    platforms = [
         ("Programmers", Path("프로그래머스"), "#2ecc71"),
         ("SWEA", Path("SWEA"), "#3498db"),
         ("Codetree", Path("Codetree"), "#9b59b6"),
         ("LeetCode", Path("Leetcode"), "#e67e22"),
-    ]:
-        problems = (
-            scan_nested(folder)
-            if name != "Codetree"
-            else scan_codetree()
-            if name == "Codetree"
-            else scan_leetcode()
-        )
+    ]
+
+    for name, folder, color in platforms:
+
+        if name == "Codetree":
+            problems = scan_codetree()
+        elif name == "LeetCode":
+            problems = scan_leetcode()
+        else:
+            problems = scan_nested(folder)
 
         count = len(problems)
 
@@ -200,8 +214,10 @@ def update_readme(stats: dict):
     ]
 
     total = 0
+
     for platform, data in stats.items():
         table.append(f"| {platform} | {data['count']} | {data['last']} |")
+
         if isinstance(data["count"], int):
             total += data["count"]
         else:
@@ -215,22 +231,30 @@ def update_readme(stats: dict):
     now_kst = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
 
     readme = replace_block(
-        readme, "<!-- STATS:START -->", "<!-- STATS:END -->",
+        readme,
+        "<!-- STATS:START -->",
+        "<!-- STATS:END -->",
         "\n".join(table)
     )
 
     readme = replace_block(
-        readme, "<!-- TOTAL:START -->", "<!-- TOTAL:END -->",
+        readme,
+        "<!-- TOTAL:START -->",
+        "<!-- TOTAL:END -->",
         f"**Total Problems:** {total}"
     )
 
     readme = replace_block(
-        readme, "<!-- LANG:START -->", "<!-- LANG:END -->",
+        readme,
+        "<!-- LANG:START -->",
+        "<!-- LANG:END -->",
         lang_md
     )
 
     readme = replace_block(
-        readme, "<!-- UPDATED:START -->", "<!-- UPDATED:END -->",
+        readme,
+        "<!-- UPDATED:START -->",
+        "<!-- UPDATED:END -->",
         f"🕒 Last Auto Update: {now_kst}"
     )
 
