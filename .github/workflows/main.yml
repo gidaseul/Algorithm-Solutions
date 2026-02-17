@@ -25,10 +25,7 @@ jobs:
       # -----------------------------
       - name: Clone Leetcode repository
         run: |
-          if [ ! -d "Leetcode" ]; then
             git clone https://github.com/gidaseul/Leetcode.git Leetcode
-          fi
-
 
       # -----------------------------
       # Move today's Codetree folder
