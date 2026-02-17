@@ -98,11 +98,11 @@
 | Programmers | 32 | 2026-01-27 |
 | SWEA | 31 | 2026-02-17 |
 | Codetree | 47 | 2026-02-07 |
-| LeetCode | 0 | N/A |
+| LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 180
+**Total Problems:** 200
 <!-- TOTAL:END -->
 
 ---
@@ -142,8 +142,8 @@
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
-- **Java**: 76.2%
-- **Python**: 23.8%
+- **Java**: 76.0%
+- **Python**: 24.0%
 <!-- LANG:END -->
 
 ---
@@ -151,7 +151,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-02-17 20:15 KST
+🕒 Last Auto Update: 2026-02-17 20:22 KST
 <!-- UPDATED:END -->
 
 ---
