@@ -1,4 +1,4 @@
-# Algorithm Solutions 🧠🔥
+# 🧠 Algorithm Solutions
 
 <div align="center">
 
