@@ -10,7 +10,11 @@
 
 </div>
 
----
+## 🌱 Contribution Graph
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=gidaseul&theme=github-compact" />
+</p>
 
 ## 🏆 Baekjoon Tier
 
