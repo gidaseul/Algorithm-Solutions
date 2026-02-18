@@ -16,6 +16,11 @@
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=gidaseul&theme=github-compact" />
 </p>
 
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=gidaseul&show_icons=true&theme=tokyonight" />
+</p>
+
+
 ## 🏆 Baekjoon Tier
 
 <!-- TIER:START -->
