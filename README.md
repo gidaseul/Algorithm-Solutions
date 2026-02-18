@@ -1,4 +1,11 @@
 # 🧠 Algorithm Solutions
+---
+
+> 여러 알고리즘 플랫폼에서 풀이한 문제를 **하나의 레포지토리로 통합 관리**합니다.  
+> 문제 수 · 최신 커밋 · 언어 통계 · 백준 티어는  
+> **GitHub Actions 기반 자동 집계 시스템**으로 관리됩니다.
+
+---
 
 <div align="center">
 
@@ -19,82 +26,54 @@
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=gidaseul&theme=tokyo-night" />
 
 
-## 🏆 Baekjoon Tier
-
-<!-- TIER:START -->
-🏆 Baekjoon Tier: **Gold V**
-<!-- TIER:END -->
-
----
-
-> 여러 알고리즘 플랫폼에서 풀이한 문제를 **하나의 레포지토리로 통합 관리**합니다.  
-> 문제 수 · 최신 커밋 · 언어 통계 · 백준 티어는  
-> **GitHub Actions 기반 자동 집계 시스템**으로 관리됩니다.
-
----
+## 🏆 Baekjoon Tier: <!-- TIER:START --> **Gold V** <!-- TIER:END -->
 
 ## 🧩 Platforms
 
-<div align="center">
-
+<table align="center">
+<tr>
+<td align="center" width="200">
 <a href="./백준">
-  <img
-    src="./assets/logos/boj.png"
-    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
-  />
-  <br/>
-  <h3>Baekjoon</h3>
+<img src="./assets/logos/boj.png" width="150"><br/>
+<b>Baekjoon</b>
 </a>
+</td>
 
-<br/>
-
+<td align="center" width="200">
 <a href="./프로그래머스">
-  <img
-    src="./assets/logos/programmers.png"
-    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
-  />
-  <br/>
-  <h3>Programmers</h3>
+<img src="./assets/logos/programmers.png" width="150"><br/>
+<b>Programmers</b>
 </a>
+</td>
 
-<br/>
-
+<td align="center" width="200">
 <a href="./SWEA">
-  <img
-    src="./assets/logos/swea.png"
-    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
-  />
-  <br/>
-  <h3>SWEA</h3>
+<img src="./assets/logos/swea.png" width="150"><br/>
+<b>SWEA</b>
 </a>
+</td>
+</tr>
+</table>
 
 <br/>
 
+<table align="center">
+<tr>
+<td align="center" width="220">
 <a href="./Codetree">
-  <img
-    src="./assets/logos/codetree.png"
-    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
-  />
-  <br/>
-  <h3>Codetree</h3>
+<img src="./assets/logos/codetree.png" width="150"><br/>
+<b>Codetree</b>
 </a>
+</td>
 
-<br/>
-
+<td align="center" width="220">
 <a href="./Leetcode">
-  <img
-    src="./assets/logos/leetcode.png"
-    style="height:250px; max-width:900px; width:auto; object-fit:contain;"
-  />
-  <br/>
-  <h3>LeetCode</h3>
+<img src="./assets/logos/leetcode.png" width="150"><br/>
+<b>LeetCode</b>
 </a>
-
-</div>
-
-
-
----
+</td>
+</tr>
+</table>
 
 # 📊 Problem Statistics
 
