@@ -18,15 +18,13 @@ public class Main {
         }
         int count = 0;
         while(!queue.isEmpty()){
-
-            int a = queue.poll();
-            queue.add(a);
             count++;
-
             if(count%k == 0){
                 int b = queue.poll();
-
                 sb.append(b).append(" ");
+            }else {
+                int a = queue.poll();
+                queue.add(a);
             }
         }
         System.out.println(sb);
