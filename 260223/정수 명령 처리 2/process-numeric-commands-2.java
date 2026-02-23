@@ -19,8 +19,8 @@ public class Main {
                 System.out.println(queue.size());
             } else if (line.equals("empty")) {
                 if (queue.isEmpty()) {
-                    System.out.println("0");
-                } else System.out.println("1");
+                    System.out.println("1");
+                } else System.out.println("0");
             } else if(line.equals("pop")){
                 System.out.println(queue.poll());
             }
