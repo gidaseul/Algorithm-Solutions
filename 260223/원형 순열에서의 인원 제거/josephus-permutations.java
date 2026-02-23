@@ -18,7 +18,7 @@ public class Main {
         }
 
         while(queue.isEmpty()){
-            for(int i =0; i<k; i++){
+            for(int i=1; i<=k; i++){
                 queue.add(queue.poll());
                 if(i==k){
                     sb.append(queue.poll()).append(" ");
