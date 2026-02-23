@@ -16,13 +16,17 @@ public class Main {
         for(int i =1;i<=n;i++){
             queue.add(i);
         }
+        int count = 0;
+        while(!queue.isEmpty()){
 
-        while(queue.isEmpty()){
-            for(int i=1; i<=k; i++){
-                queue.add(queue.poll());
-                if(i==k){
-                    sb.append(queue.poll()).append(" ");
-                }
+            int a = queue.poll();
+            queue.add(a);
+            count++;
+
+            if(count%k == 0){
+                int b = queue.poll();
+
+                sb.append(b).append(" ");
             }
         }
         System.out.println(sb);
