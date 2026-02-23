@@ -127,8 +127,8 @@
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
-- **Java**: 77.0%
-- **Python**: 23.0%
+- **Java**: 77.3%
+- **Python**: 22.7%
 <!-- LANG:END -->
 
 ---
@@ -136,7 +136,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-02-22 23:58 KST
+🕒 Last Auto Update: 2026-02-24 00:31 KST
 <!-- UPDATED:END -->
 
 ---
