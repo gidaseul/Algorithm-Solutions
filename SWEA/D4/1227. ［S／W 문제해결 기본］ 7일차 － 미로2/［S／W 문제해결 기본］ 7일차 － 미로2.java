@@ -10,12 +10,12 @@ import java.util.*;
  *      3. 출발점 부터 도착지점까지 갈 수 있는 길이 있는지 여부 파악하기
  *
  *  해결 접근:
- *      1. 미로를 탐색하는 부분에서 백트래킹 방법으로 미로를 풀 수 있을 것 같음.
+ *      1. 미로를 탐색하는 부분에서 BFS로 풀어봄.
  *          1-1. (1,1) 에서 탐색 시작함.
  *          1-2. 탐색 방향은 4가지 방향 존재함.
  *              1-2-1. 방향을 탐색하면서 주의할 점.
- *                  1-2-1-1. 방해물(1), 이미 갔던 곳, 배열을 벗어난 nx,ny 가 아닐 경우메나 탐색
- *              1-2-2. 탐색 하면서 boolean 의 형태로 값을 반환 받을 때 dfs의 호출 값도 true로 반환 값을 전달해야 함.
+ *                  1-2-1-1. 방해물(1), 이미 갔던 곳, 배열을 벗어난 nx,ny 가 아닐 경우에만 탐색
+ *              1-2-2. 탐색 하면서 탐색 가능성 있는 것만 큐에 집어넣기
  *
  *
  */
@@ -48,26 +48,34 @@ public class Solution {
                 }
             }
             sb.append("#").append(tc).append(" ");
-            if(dfs(1,1)) sb.append(1).append("\n");
+            if(bfs(1,1)) sb.append(1).append("\n");
             else sb.append(0).append("\n");
         }
         System.out.println(sb);
         sb.setLength(0);
     }
 
-    static boolean dfs(int x, int y){
-        if(map[x][y] == 3){
-            return true;
-        }
-        for(int i=0; i<4;i++){
-            int nx = x+dx[i];
-            int ny = y+dy[i];
+    static boolean bfs(int x, int y){
+        Queue<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{x,y});
+        check[x][y] = true;
 
-            if(nx >=0 && nx < 100 && ny >= 0 && ny < 100 && map[nx][ny] !=1){
-                if(!check[nx][ny]){
-                    check[nx][ny] = true;
-                    if(dfs(nx,ny)){
-                        return true;
+
+        while(!q.isEmpty()){
+            int [] cur = q.poll();
+            int ax = cur[0];
+            int ay = cur[1];
+
+            if(map[ax][ay] == 3) return true;
+
+            for(int i=0; i<4;i++){
+                int nx = ax+dx[i];
+                int ny = ay+dy[i];
+
+                if(nx >=0 && nx < 100 && ny >= 0 && ny < 100 && map[nx][ny] !=1) {
+                    if(!check[nx][ny]){
+                        check[nx][ny] = true;
+                        q.offer(new int[]{nx,ny});
                     }
                 }
             }
