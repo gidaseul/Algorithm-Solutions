@@ -46,17 +46,24 @@ def scan_nested(base: Path):
         for problem in level.iterdir() if problem.is_dir()
     ]
 
-
 def scan_codetree():
     base = Path("Codetree")
     if not base.exists():
         return []
-    return [
-        problem
-        for day in base.iterdir() if day.is_dir()
-        for problem in day.iterdir() if problem.is_dir()
-    ]
-
+    
+    problem_folders = []
+    
+    # rglob을 사용하여 모든 하위 폴더를 탐색
+    for p in base.rglob("*"):
+        if p.is_dir():
+            # 해당 폴더 안에 하위 폴더가 없는지 확인 (최하위 폴더를 문제 폴더로 간주)
+            has_subfolder = any(child.is_dir() for child in p.iterdir())
+            if not has_subfolder:
+                # .git 이나 assets 같은 특수 폴더 제외 (필요 시)
+                if not p.name.startswith('.'):
+                    problem_folders.append(p)
+                    
+    return problem_folders
 
 def scan_leetcode():
     base = Path("Leetcode")
