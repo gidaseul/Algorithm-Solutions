@@ -51,19 +51,9 @@ def scan_codetree():
     if not base.exists():
         return []
     
-    problem_folders = []
-    
-    # rglob을 사용하여 모든 하위 폴더를 탐색
-    for p in base.rglob("*"):
-        if p.is_dir():
-            # 해당 폴더 안에 하위 폴더가 없는지 확인 (최하위 폴더를 문제 폴더로 간주)
-            has_subfolder = any(child.is_dir() for child in p.iterdir())
-            if not has_subfolder:
-                # .git 이나 assets 같은 특수 폴더 제외 (필요 시)
-                if not p.name.startswith('.'):
-                    problem_folders.append(p)
-                    
-    return problem_folders
+    # Codetree 폴더 바로 아래에 있는 모든 디렉토리를 수집
+    # 260223, 260224 등의 날짜 폴더들이 각각 하나의 항목이 됨
+    return [p for p in base.iterdir() if p.is_dir()]
 
 def scan_leetcode():
     base = Path("Leetcode")
