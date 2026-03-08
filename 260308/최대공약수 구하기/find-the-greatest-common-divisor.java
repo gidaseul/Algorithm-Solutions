@@ -16,7 +16,7 @@ public class Main {
 
     static int get_gcd(int n, int m){
         while(m!=0){
-            gcd(m,n%m);
+            get_gcd(m,n%m);
         }
         return n;
     }
