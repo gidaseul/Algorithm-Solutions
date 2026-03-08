@@ -14,10 +14,12 @@ public class Main {
 
     }
 
-    static int get_gcd(int n, int m){
-        while(m!=0){
-            get_gcd(m,n%m);
+    static int get_gcd(int a, int b){
+        while(b!=0){
+            int r = a%b;
+            a = b;
+            b = r; 
         }
-        return n;
+        return a;
     }
 }
