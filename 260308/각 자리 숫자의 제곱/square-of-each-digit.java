@@ -1,20 +1,28 @@
 import java.util.Scanner;
+
 public class Main {
+    static int result;
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         // Please write your code here.
-        int result = add(n);
+        result = 0;
+        add(n);
         System.out.print(result);
     
     }
-    
-    static int add(int n){
+
+    static void add(int n){
         
         if(n<10){
-            return n;
+            result+=(n*n);
+            return;
         }
-
-        return add(n/10) + ((n%10) * (n*10));
+        int r = n%10;
+        result+=(r*r);
+        add(n/10);
+    
     }
 }
