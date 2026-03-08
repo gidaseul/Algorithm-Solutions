@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -12,12 +13,12 @@ public class Main {
             return;
         }
 
-        for(int i=0;i<n;i++){}
+        for(int i=0;i<n;i++){
             System.out.print("*"+" ");
         }
         print(n-1);
         
-        for(int i=0;i<n;i++){}
+        for(int i=0;i<n;i++){
             System.out.print("*"+" ");
         }
     }
