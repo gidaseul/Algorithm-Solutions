@@ -6,8 +6,9 @@ public class Main {
         // Please write your code here.
         int result = add(n);
         System.out.print(result);
+    
     }
-
+    
     static int add(int n){
         
         if(n<10){
@@ -15,4 +16,5 @@ public class Main {
         }
 
         return add(n/10) + ((n%10) * (n*10));
+    }
 }
