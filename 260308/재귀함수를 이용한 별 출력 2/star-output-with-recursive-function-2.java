@@ -16,10 +16,13 @@ public class Main {
         for(int i=0;i<n;i++){
             System.out.print("*"+" ");
         }
+        System.out.println();
         print(n-1);
         
         for(int i=0;i<n;i++){
             System.out.print("*"+" ");
         }
+        System.out.println();
+
     }
 }
