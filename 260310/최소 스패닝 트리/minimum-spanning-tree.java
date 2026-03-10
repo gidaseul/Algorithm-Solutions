@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class Kruskal {
+public class Main {
 
     static int find(int x) {
         if(x == parents[x]) {
