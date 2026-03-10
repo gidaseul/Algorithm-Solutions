@@ -57,7 +57,7 @@ public class Main {
         for(int i=1;i<=m;i++) {
             if(union(edges[i][0], edges[i][1])) {
                 cost += edges[i][2];
-                if(++count == m-1) break;
+                if(++count == n-1) break;
             }
         }
         System.out.println(cost);
