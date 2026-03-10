@@ -35,7 +35,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        parents = new int[n];
+        parents = new int[n+1];
         int cost = 0;
         int count = 0;
         int[][] edges = new int[m][3];
@@ -49,7 +49,7 @@ public class Main {
         Arrays.sort(edges, (a,b)->Integer.compare(a[2],b[2]));
         
         // 2. parents 배열 초기화
-        for(int i=0; i<n;i++) {
+        for(int i=1; i<=n;i++) {
             parents[i] = i;
         }
         
