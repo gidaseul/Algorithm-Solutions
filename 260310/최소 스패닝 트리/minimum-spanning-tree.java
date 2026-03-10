@@ -35,11 +35,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        parents = new int[n+1];
+        parents = new int[n];
         int cost = 0;
         int count = 0;
-        int[][] edges = new int[m+1][3];
-        for (int i = 1; i <= m; i++) {
+        int[][] edges = new int[m][3];
+        for (int i = 0; i < m; i++) {
             edges[i][0] = sc.nextInt();
             edges[i][1] = sc.nextInt();
             edges[i][2] = sc.nextInt();
@@ -49,12 +49,12 @@ public class Main {
         Arrays.sort(edges, (a,b)->Integer.compare(a[2],b[2]));
         
         // 2. parents 배열 초기화
-        for(int i=1; i<=n;i++) {
+        for(int i=0; i<n;i++) {
             parents[i] = i;
         }
         
         // 3. 확인하여 간선 연결하기
-        for(int i=1;i<=m;i++) {
+        for(int i=0;i<m;i++) {
             if(union(edges[i][0], edges[i][1])) {
                 cost += edges[i][2];
                 if(++count == n-1) break;
