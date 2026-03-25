@@ -33,14 +33,22 @@ jobs:
 
           for dir in [0-9][0-9][0-9][0-9][0-9][0-9]; do
             [ -d "$dir" ] || continue
+            mkdir -p "Codetree/$dir"
 
-            if [ -e "Codetree/$dir" ]; then
-              echo "Skip $dir: Codetree/$dir already exists"
-              continue
-            fi
+            for entry in "$dir"/*; do
+              [ -e "$entry" ] || continue
+              name="${entry##*/}"
 
-            git mv "$dir" "Codetree/$dir"
-            moved=1
+              if [ -e "Codetree/$dir/$name" ]; then
+                echo "Skip $entry: Codetree/$dir/$name already exists"
+                continue
+              fi
+
+              git mv "$entry" "Codetree/$dir/$name"
+              moved=1
+            done
+
+            rmdir "$dir" || true
           done
 
           if [ "$moved" -eq 0 ]; then
