@@ -21,15 +21,30 @@ jobs:
           fetch-depth: 0   # 🔥 git log 날짜 정확히 가져오려면 필요
 
       # -----------------------------
-      # Move today's Codetree folder
+      # Move stray Codetree folders
       # -----------------------------
-      - name: Move today's Codetree folder
+      - name: Move stray Codetree folders
         shell: bash
         run: |
-          TODAY=$(date -u -d "+9 hours" +"%y%m%d")
-          if [ -d "$TODAY" ] && [ ! -d "Codetree/$TODAY" ]; then
-            mkdir -p Codetree
-            git mv "$TODAY" "Codetree/$TODAY"
+          shopt -s nullglob
+          mkdir -p Codetree
+
+          moved=0
+
+          for dir in [0-9][0-9][0-9][0-9][0-9][0-9]; do
+            [ -d "$dir" ] || continue
+
+            if [ -e "Codetree/$dir" ]; then
+              echo "Skip $dir: Codetree/$dir already exists"
+              continue
+            fi
+
+            git mv "$dir" "Codetree/$dir"
+            moved=1
+          done
+
+          if [ "$moved" -eq 0 ]; then
+            echo "No stray Codetree folders found"
           fi
 
       # -----------------------------
