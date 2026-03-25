@@ -83,7 +83,7 @@
 | Baekjoon | 83 / 177 | 2026-03-12 |
 | Programmers | 32 | 2026-01-27 |
 | SWEA | 40 | 2026-03-17 |
-| Codetree | 111 | 2026-03-08 |
+| Codetree | 111 | 2026-03-25 |
 | LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
@@ -136,7 +136,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-03-25 23:02 KST
+🕒 Last Auto Update: 2026-03-25 23:03 KST
 <!-- UPDATED:END -->
 
 ---
