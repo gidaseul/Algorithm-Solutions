@@ -105,11 +105,15 @@ def last_commit_from_folders(folders: list[Path]) -> str:
 
 
 def unique_paths(paths: list[Path]) -> list[Path]:
-    seen: set[str] = set()
+    seen: set[tuple[int, int] | str] = set()
     unique: list[Path] = []
 
     for path in paths:
-        key = str(path.resolve())
+        try:
+            stat = path.stat()
+            key: tuple[int, int] | str = (stat.st_dev, stat.st_ino)
+        except FileNotFoundError:
+            key = str(path.resolve()).lower()
         if key in seen:
             continue
         seen.add(key)
