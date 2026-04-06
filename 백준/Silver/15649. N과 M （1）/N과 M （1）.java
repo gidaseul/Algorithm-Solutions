@@ -1,51 +1,55 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
-/*
- * SW Expert Academy 
- * @author Da_seul
- * 
- * 	@see #main(String[])
- * 		
- */
-public class Main
-{
-	
-	static BufferedReader br;
-	static StringTokenizer st;
-	static StringBuilder sb;
-	static boolean[] visited;
-	static void perm(int n, int r, List<Integer> path) {
+public class Main {
 
-		
-		// 종료 조건
-		if(path.size() == r) {
-			sb = new StringBuilder();
-			for (int x : path) {
-				sb.append(x).append(" ");
-			}
-			System.out.println(sb.toString().trim());
-			return;
-		}
-		
-		// 다음 숫자 선택
-		for(int i =1; i<=n; i++) {
-			if(visited[i]) continue;
-			visited[i] = true;
-			path.add(i);
-			perm(n,r,path);
-			path.remove(path.size()-1);
-			visited[i] = false;
-		}
-	}
-	public static void main(String args[]) throws IOException
-	{
-		br = new BufferedReader(new InputStreamReader(System.in));
-		st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		visited = new boolean[N+1];
-		
-		perm(N,M,new ArrayList<>());
-	}
+    static BufferedReader br;
+    static StringTokenizer st;
+    static StringBuilder sb;
+
+    static int N,M;
+    static boolean[] arrN;
+    static int[] arrM,arrNResult;
+
+    public static void main(String[] args) throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        sb = new StringBuilder();
+
+        st = new StringTokenizer(br.readLine().trim());
+
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+
+        arrN = new boolean[N];
+        arrNResult = new int[N];
+        for(int i=0;i<N;i++){
+            arrNResult[i] = i+1;
+        }
+        arrM = new int[M];
+
+        // 순열이니까 N의 숫자를 M만큼
+        perm(0);
+
+    }
+    static void perm(int depth){
+
+        if(depth == M){
+            for(int a : arrM){
+                sb.append(a).append(" ");
+            }
+            System.out.println(sb);
+            sb.setLength(0);
+            return;
+        }
+
+        for(int i=0;i<N;i++){
+            if(!arrN[i]){
+                arrN[i] = true;
+                arrM[depth] = arrNResult[i];
+                perm(depth+1);
+                arrN[i] = false;
+            }
+        }
+    }
+
 }
