@@ -26,7 +26,7 @@
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=gidaseul&theme=tokyo-night" />
 
 
-## 🏆 Baekjoon Tier: <!-- TIER:START --> **Gold V** <!-- TIER:END -->
+## 🏆 Baekjoon Tier: <!-- TIER:START --> **Gold IV** <!-- TIER:END -->
 
 ## 🧩 Platforms
 
@@ -80,7 +80,7 @@
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 85 / 179 | 2026-04-06 |
+| Baekjoon | 89 / 184 | 2026-04-07 |
 | Programmers | 32 | 2026-01-27 |
 | SWEA | 40 | 2026-03-17 |
 | Codetree | 114 | 2026-04-04 |
@@ -88,7 +88,7 @@
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 291
+**Total Problems:** 295
 <!-- TOTAL:END -->
 
 ---
@@ -127,8 +127,8 @@
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
-- **Java**: 87.1%
-- **Python**: 12.9%
+- **Java**: 86.9%
+- **Python**: 13.1%
 <!-- LANG:END -->
 
 ---
@@ -136,7 +136,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-04-07 00:32 KST
+🕒 Last Auto Update: 2026-04-08 01:00 KST
 <!-- UPDATED:END -->
 
 ---
