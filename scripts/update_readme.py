@@ -141,6 +141,28 @@ def scan_one_level(base: Path) -> list[Path]:
     return unique_paths(child_dirs(base))
 
 
+def scan_baekjoon() -> list[Path]:
+    """백준허브 구조 호환: 백준/Bronze|Silver|Gold/1000. 문제제목/ 안에 소스파일 있는 폴더를 셈"""
+    base = Path("백준")
+    if not base.exists():
+        return []
+
+    source_extensions = {"*.py", "*.java", "*.cpp", "*.c", "*.kt", "*.js"}
+    problems: list[Path] = []
+
+    for item in base.rglob("*"):
+        if not item.is_dir():
+            continue
+        has_source = any(
+            list(item.glob(ext))
+            for ext in source_extensions
+        )
+        if has_source:
+            problems.append(item)
+
+    return unique_paths(problems)
+
+
 def scan_codetree() -> list[Path]:
     date_folders: list[Path] = []
 
@@ -217,7 +239,7 @@ def platform_configs() -> list[PlatformConfig]:
             name="Baekjoon",
             color="#f39c12",
             asset_name="bj_progress.svg",
-            scanner=lambda: scan_two_levels(Path("백준")),
+            scanner=scan_baekjoon,  # 백준허브 구조 호환
             show_total=True,
         ),
         PlatformConfig(
