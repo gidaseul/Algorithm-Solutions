@@ -1,13 +1,13 @@
 <svg width="700" height="90" xmlns="http://www.w3.org/2000/svg">
   <rect width="700" height="25" fill="#2c2f33" rx="12"/>
-  <rect width="338" height="25" fill="#f39c12" rx="12">
+  <rect width="350" height="25" fill="#f39c12" rx="12">
     <animate attributeName="width"
              from="0"
-             to="338"
+             to="350"
              dur="1.2s"
              fill="freeze" />
   </rect>
   <text x="0" y="65" fill="white" font-size="20">
-    Baekjoon  89 / 184  (48.4%)
+    Baekjoon  94 / 188  (50.0%)
   </text>
 </svg>
