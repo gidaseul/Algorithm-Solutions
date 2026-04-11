@@ -1,16 +1,16 @@
 K = int(input())
 
 stack = []
+total = 0
 
-for i in range(K):
+for _ in range(K):
     num = int(input())
     
     if num ==0:
-        if i == 0:
-            pass
-    
-        stack.pop()
-    else: 
+       if stack:
+           removed = stack.pop()
+           total -= removed
+    else:
         stack.append(num)
-
-print(sum(stack))
+        total += num
+print(total)
