@@ -8,8 +8,6 @@ for _ in range(N):
     row = list(map(int, input().split()))
     arr1.append(row)
 
-input()  # 빈 줄 건너뛰기
-
 arr2 = []
 for _ in range(N):
     row = list(map(int, input().split()))
