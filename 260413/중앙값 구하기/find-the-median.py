@@ -1,6 +1,6 @@
-arr = list(map(int, inpit().split()))
+arr = list(map(int, input().split()))
 
-sorted(arr)
+arr.sort()
 
 print(arr[1])
 
