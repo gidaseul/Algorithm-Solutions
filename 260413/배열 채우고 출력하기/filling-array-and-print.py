@@ -1,4 +1,4 @@
-arr = list(map(str,input().split()))
+arr = list(str,input().split()))
 
 result = ''
 size = len(arr)
