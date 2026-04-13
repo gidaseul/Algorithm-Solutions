@@ -1,8 +1,3 @@
-arr = list(str,input().split()))
+arr = input().split()
 
-result = ''
-size = len(arr)
-for i in range(size):
-    result+=arr[size-1-i]
-
-print(result)
+print(''.join(arr[::-1]))
