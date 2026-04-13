@@ -8,6 +8,6 @@ if sex == 0:
         print("BOY")
 else:
     if age >= 19:
-        print("MAWOMANN")
+        print("WOMAN")
     else:
         print("GIRL")
