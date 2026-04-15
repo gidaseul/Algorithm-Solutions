@@ -28,7 +28,7 @@ for i in range(n):
 
     cntK = 0
     for k in range(n):
-        if j == 0:
+        if k == 0:
             temp = grid[k][i]
             cntK = 1
             if cntK >=m:
