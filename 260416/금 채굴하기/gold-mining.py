@@ -19,7 +19,7 @@ def dia_count(r,c,K):
 def check(r,c):
     max_cnt = 0
 
-    for K in range(1,2*N+1):
+    for K in range(1,2*n+1):
         cost = K**2 + (K+1)**2
 
         if total_gold * m < cost:
