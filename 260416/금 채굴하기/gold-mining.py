@@ -1,7 +1,7 @@
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-total_gold = sum(grid[i][j] for i in range(n) for j in range(m))
+total_gold = sum(grid[i][j] for i in range(n) for j in range(n))
 
 # r,c가 주어질 때 K 범위 만큼의 마름모로 확인하는 과정
 def dia_count(r,c,K):
