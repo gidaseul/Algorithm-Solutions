@@ -20,22 +20,23 @@ for i in range(n):
 
             for shape in l_shapes:
                 current = grid[i][j]
-                if_possible = True
+                is_possible = True
                 for dr,dc in shape:
                     nr,nc = i+dr, j+dc
                     if 0 <= nr < n and 0 <=nc < m:
-                        current == grid[nr][nc]
+                        current += grid[nr][nc]
                     else:
                         is_possible = False
                         break
+                    
                 if is_possible:
                     ans = max(ans,current)
+                    
 
-            if j +2 < m:
+            if j+2 < m:
                 ans = max(ans, grid[i][j]+grid[i][j+1]+grid[i][j+2])
-            if i +2 < n:
+            if i+2 < n:
                 ans = max(ans, grid[i][j]+grid[i+1][j]+grid[i+2][j])
-
 
 print(ans)
 
