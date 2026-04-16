@@ -1,3 +1,6 @@
+import sys
+import math
+
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
@@ -9,7 +12,7 @@ def dia_count(r,c,K):
     for i in range(r-K,r+K+1):
         col_range = K - abs(i-r)
         for j in range(c-col_range, c+col_range+1):
-            if 0<= i<n and 0<=j<m:
+            if 0<= i<n and 0<=j<n:
                 if grid[i][j] == 1:
                     cnt+=1
 
