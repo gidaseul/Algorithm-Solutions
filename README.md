@@ -83,12 +83,12 @@
 | Baekjoon | 189 / 196 | 2026-04-14 |
 | Programmers | 32 | 2026-01-27 |
 | SWEA | 45 | 2026-04-14 |
-| Codetree | 163 | 2026-04-15 |
+| Codetree | 164 | 2026-04-16 |
 | LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 449
+**Total Problems:** 450
 <!-- TOTAL:END -->
 
 ---
@@ -127,8 +127,8 @@
 ## 🧠 Language Distribution
 
 <!-- LANG:START -->
-- **Java**: 80.4%
-- **Python**: 16.6%
+- **Java**: 80.1%
+- **Python**: 16.9%
 - **C**: 2.8%
 - **C++**: 0.2%
 <!-- LANG:END -->
@@ -138,7 +138,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-04-17 01:09 KST
+🕒 Last Auto Update: 2026-04-18 00:42 KST
 <!-- UPDATED:END -->
 
 ---
