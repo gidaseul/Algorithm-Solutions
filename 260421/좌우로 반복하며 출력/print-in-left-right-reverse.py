@@ -10,7 +10,7 @@ for i in range(1,num+1):
         row.reverse()
     
     arr.append(row)
-    print(*arr[i-1])
+    print(*arr[i-1], sep='')
 
 
     
