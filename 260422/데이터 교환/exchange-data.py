@@ -4,5 +4,5 @@ c = 7
 
 
 print(c)
-print(b)
 print(a)
+print(b)
