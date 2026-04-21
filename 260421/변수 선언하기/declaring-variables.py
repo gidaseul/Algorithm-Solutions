@@ -1,5 +1,5 @@
 a = 3
-b = 'c'
+b = 'C'
 
 print(a)
 print(b)
