@@ -83,12 +83,12 @@
 | Baekjoon | 189 / 196 | 2026-04-14 |
 | Programmers | 98 | 2026-04-22 |
 | SWEA | 45 | 2026-04-14 |
-| Codetree | 244 | 2026-04-22 |
+| Codetree | 245 | 2026-04-22 |
 | LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 596
+**Total Problems:** 597
 <!-- TOTAL:END -->
 
 ---
@@ -138,7 +138,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-04-25 00:50 KST
+🕒 Last Auto Update: 2026-04-26 00:26 KST
 <!-- UPDATED:END -->
 
 ---
