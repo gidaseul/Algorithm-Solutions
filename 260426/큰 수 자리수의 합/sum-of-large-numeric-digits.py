@@ -2,10 +2,10 @@ a, b, c = map(int, input().split())
 
 # Please write your code here.
 result = a*b*c
-result = str(result)
+def digit_sum(n):
+    if n < 10:
+        return n
 
-sum = 0
-for i in range(len(result)):
-    sum += int(result[i])
+    return digit_sum(n//10) + n%10
 
-print(sum)
+print(digit_sum(result))
