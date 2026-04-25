@@ -9,7 +9,7 @@ def factorial(N):
     if N == 2:
         return 2
 
-    sum = 0
+    sum = 1
     for i in range(1,N+1):
         sum *= i
     
