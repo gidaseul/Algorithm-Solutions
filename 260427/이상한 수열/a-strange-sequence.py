@@ -1,16 +1,13 @@
 N = int(input())
 
 # Please write your code here.
-arr = [1,2]
-def fun(i):
+def fun(n):
 
-    if i==N:
-        return arr[i-1]
-    
-    num = (i+1) // 3
-    result = arr[num-1] + arr[i-1]
-    arr.append(result)
-    return fun(i+1)
+    if n == 1:
+        return 1
+    if n == 2:
+        retrun 2
+    return fun(n//3) + fun(n-1)
 
 
-print(fun(2))
+print(fun(N))
