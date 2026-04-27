@@ -14,8 +14,12 @@ day_of_the_week = ["Mon", "Tue", "Wed","Thu","Fri","Sat","Sun"]
 
 num1 = to_days(m1, d1)
 num2 = to_days(m2, d2)
+diff = num2 - num1
 
-diff = num2- num1
-current_idx = day_of_the_week.index(A) + 1
-count = diff // current_idx
-print(count)
+target = day_of_the_week.index(A)
+first = target
+
+if first > diff:
+    print(0)
+else:
+    print((diff-first) // 7 +1)
