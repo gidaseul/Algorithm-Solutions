@@ -16,13 +16,6 @@ num1 = to_days(m1, d1)
 num2 = to_days(m2, d2)
 
 diff = num2- num1
-
-current_idx = day_of_the_week.index(A)
-
-count = 1
-diff -=current_idx +1
-while diff >= 0:
-    diff-=7
-    count+=1
-
+current_idx = day_of_the_week.index(A) + 1
+count = diff // current_idx
 print(count)
