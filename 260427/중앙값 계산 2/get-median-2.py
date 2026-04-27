@@ -3,17 +3,7 @@ arr = list(map(int, input().split()))
 
 # Please write your code here.
 
-result = [arr[0]]
-
-for i in range(3,n+1):
-    if i%2 != 0:
-        sum = []
-        for j in range(i):
-            sum.append(arr[j])
-        
-        sum.sort()
-        idx = len(sum) //2
-        result.append(sum[idx])
-    else:
-        continue
-print(*result)
+for i in range(n):
+    if i % 2==0:
+        sorted_arr = sorted(arr[:i+1])
+        print(sorted_arr[i//2], end=" ")
