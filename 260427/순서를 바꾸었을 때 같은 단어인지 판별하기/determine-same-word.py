@@ -5,20 +5,21 @@ word2 = input()
 w1 = sorted(word1)
 w2 = sorted(word2)
 
-num = 0
+w1_l = len(w1)
+w2_l = len(w2)
 ans = "Yes"
-for i in w1:
-    if w2[num] == i:
-        if len(w1) == num-1:
-            break
-        else:
-            num+=1
-            continue
+
+for i in range(w1_l):
+    if w1_l != w2_l:
+        ans = "No"
+        break 
+    
+    if w1[i] == w2[i]:
+        continue
 
     else:
         ans = "No"
         break
 
-    
 
 print(ans)
