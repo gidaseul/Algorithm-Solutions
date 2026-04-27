@@ -6,7 +6,7 @@ arr.sort()
 
 num = n//2
 result = []
-for i in range(num):
+for i in range(num+1):
     result.append(arr[i])
 
 print(*result)
