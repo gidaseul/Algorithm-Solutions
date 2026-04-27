@@ -17,5 +17,5 @@ if num2-num1 <0:
     print(day_of_the_week[-idx])
 
 else:
-    idx = (num2-num1) % 7    
+    idx = (num2-num1+1) % 7    
     print(day_of_the_week[idx])
