@@ -1,25 +1,14 @@
 word1 = input()
 word2 = input()
 
-# Please write your code here.
-w1 = sorted(word1)
-w2 = sorted(word2)
+word1=sorted(word1)
+word2=sorted(word2)
 
-w1_l = len(w1)
-w2_l = len(w2)
-ans = "Yes"
+word1=''.join(word1)
+word2=''.join(word2)
 
-for i in range(w1_l):
-    if w1_l != w2_l:
-        ans = "No"
-        break 
-    
-    if w1[i] == w2[i]:
-        continue
+if word1 == word2:
+    print('Yes')
+else:
+    print('No')
 
-    else:
-        ans = "No"
-        break
-
-
-print(ans)
