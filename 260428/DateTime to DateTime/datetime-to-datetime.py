@@ -1,22 +1,11 @@
-a, b, c = map(int, input().split())
+# 변수 선언 및 입력
+a, b, c = tuple(map(int, input().split()))
 
-# Please write your code here.
+# 차이를 계산합니다.
+diff = (a * 24 * 60 + b * 60 + c) - (11 * 24 * 60 + 11 * 60 + 11)
 
-if a <=11 and b<=11 and c<11:
+# 출력
+if diff < 0:
     print(-1)
-
-d = a-11
-
-h = b-11
-if h <0:
-    h = 24-11+b
-
-m = c-11
- 
-if m <0:
-    m = 60-11+b
-
-result = (d * 24 * 60) + h * 60 + m
-print(result)
-
-
+else:
+    print(diff)
