@@ -14,7 +14,8 @@ for i in range(m1+1,m2):
         check = False
         break
     
-    result += num_of_days[i]
+    else:
+        result += num_of_days[i]
 
 
 if check:
