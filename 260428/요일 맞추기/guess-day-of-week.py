@@ -16,4 +16,4 @@ num2 = to_days(m2, d2)
 diff = num2- num1
 
 idx = diff % 7
-print(print(day_of_the_week[idx]))
+print(day_of_the_week[idx])
