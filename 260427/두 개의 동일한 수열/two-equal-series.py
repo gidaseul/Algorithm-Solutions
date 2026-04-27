@@ -10,6 +10,7 @@ for i in A:
     
     if num+1 == len(A):
         print("Yes")
+        break
 
     if B[num] == i:
         num+=1
