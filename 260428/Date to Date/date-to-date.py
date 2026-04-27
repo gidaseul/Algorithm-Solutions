@@ -6,12 +6,11 @@ num_of_days = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 
 length = m2-m1
-result = num_of_days[m1] - d1
+result = num_of_days[m1] - d1+1
 check = True
 
 for i in range(m1+1,m2):
     if length == 0:
-        result = d2-d1+1
         check = False
         break
     
@@ -19,8 +18,8 @@ for i in range(m1+1,m2):
 
 
 if check:
-    result += d2 +1
+    result += d2
     print(result)
 else:
-    print(result)
+    print(d2-d1+1)
 
