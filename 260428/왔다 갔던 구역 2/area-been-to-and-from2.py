@@ -31,4 +31,4 @@ for i in range(2*OFFSET+1):
     if result[i] >= 2:
         res += 1
 
-print(re) 
+print(res)
