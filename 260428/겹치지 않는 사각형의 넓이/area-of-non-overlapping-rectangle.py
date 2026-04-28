@@ -17,6 +17,6 @@ cnt = 0
 
 for y in range(LENGTH):
         for x in range(LENGTH):
-            if grid[y][x] in [1,]:
+            if grid[y][x] in [1,2]:
                 cnt+=1
 print(cnt)
