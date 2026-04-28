@@ -1,6 +1,10 @@
 import sys, math, copy
 
 
+"""
+결국엔 한 쪽으로 큰 길이, 작은 길이로 정해져서 푸는 게 효과적임
+"""
+
 def solution(sizes):
     
     result = 0
