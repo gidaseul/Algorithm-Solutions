@@ -16,7 +16,8 @@ for i in range(n):
     startY = OFFSET + y[i]
     for r in range(8):
         for c in range(8):
-            arr[startX+r][startY+c] 
+            arr[startX+r][startY+c] = 1
+
 cnt = 0
 for i in range(LENGTH):
     for j in range(LENGTH):
