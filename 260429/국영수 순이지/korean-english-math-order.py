@@ -11,6 +11,7 @@ student = []
 
 for _ in range(n):
     n_i, k_i, e_i, m_i = input().split()
+    k_i, e_i, m_i = int(k_i), int(e_i), int(m_i)
     student.append(stu(n_i, k_i, e_i, m_i))
 # Please write your code here.
 
