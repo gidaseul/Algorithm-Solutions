@@ -14,7 +14,7 @@ for _ in range(n):
     student.append(stu(n_i, k_i, e_i, m_i))
 # Please write your code here.
 
-student.sort(key=lambda x : (x.kor,x.eng,x.math))
+student.sort(key=lambda x : (-x.kor,-x.eng,-x.math))
 
 for i in student:
     print(i.name, i.kor, i.eng, i.math)
