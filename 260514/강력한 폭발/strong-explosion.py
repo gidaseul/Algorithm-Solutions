@@ -16,7 +16,6 @@ bomb_shape = {
 }
 
 selected = []
-answer = 0
 
 def count_exploded():
     exploded_map = [[False] * n for _ in range(n)]
@@ -42,20 +41,21 @@ def count_exploded():
 
     return count
 
-def backtracking(depth):
-    global answer
+def backtracking(depth: int) -> int:
     
     if depth == len(bomb_positions):
-        answer = max(answer, count_exploded())
-        return
+        return count_exploded()   # 직접 반환
 
-    for i in range(1,4):
+    best = 0
 
+    for i in range(1, 4):
         selected.append(i)
-        backtracking(depth+1)
+        result = backtracking(depth + 1)  # 반환값을 받음
+        best = max(best, result)          # 누적
         selected.pop()
 
-    return
+    return best   # 상위 호출자에게 전달
 
-backtracking(0)
+
+answer = backtracking(0)   # global 변수 불필요
 print(answer)
