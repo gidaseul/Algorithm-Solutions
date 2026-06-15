@@ -1,8 +1,11 @@
 def solution(numbers, target):
-    def dfs(idx, curr_sum):
-        if idx == len(numbers):
-            if curr_sum == target:
+    answer = 0
+    
+    def depth(cur_idx, cur_sum):
+        if cur_idx == len(numbers):
+            if cur_sum == target:
                 return 1
-            return 0
-        return dfs(idx + 1,curr_sum + numbers[idx]) + dfs(idx + 1, curr_sum - numbers[idx])
-    return dfs(0,0)
+            else:
+                return 0
+        return depth(cur_idx+1, cur_sum + numbers[cur_idx]) + depth(cur_idx+1, cur_sum-numbers[cur_idx]) 
+    return depth(0,0)
