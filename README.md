@@ -138,7 +138,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-09-09 03:05 KST
+🕒 Last Auto Update: 2026-09-10 03:00 KST
 <!-- UPDATED:END -->
 
 ---
