@@ -84,7 +84,9 @@ def safe_fetch_json(url: str) -> dict:
     try:
         with urlopen(request, timeout=5) as response:
             return json.load(response)
-    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as error:
+        # 실패를 숨기지 않고 실행 기록에 남긴다 (값은 이전 것을 유지한다)
+        print(f"[warn] 조회 실패, 이전 값을 유지합니다: {url} ({error})")
         return {}
 
 
@@ -230,7 +232,10 @@ def generate_progress_svg(name: str, current: int, total: int, color: str, filen
   </text>
 </svg>
 """
-    (ASSETS_PATH / filename).write_text(svg.strip() + "\n", encoding="utf-8")
+    content = svg.strip() + "\n"
+    target = ASSETS_PATH / filename
+    if not target.exists() or target.read_text(encoding="utf-8") != content:
+        target.write_text(content, encoding="utf-8")
 
 
 def platform_configs() -> list[PlatformConfig]:
@@ -269,9 +274,19 @@ def platform_configs() -> list[PlatformConfig]:
     ]
 
 
+def previous_baekjoon_total() -> int | None:
+    """solved.ac 조회가 실패했을 때 쓸, README 에 적혀 있던 직전 전체 풀이 수."""
+    if not README_PATH.exists():
+        return None
+    match = re.search(r"\|\s*Baekjoon\s*\|\s*\d+\s*/\s*(\d+)\s*\|", README_PATH.read_text(encoding="utf-8"))
+    return int(match.group(1)) if match else None
+
+
 def compute_stats() -> tuple[list[PlatformStat], str | None]:
     baekjoon_profile = get_baekjoon_profile("hye0328")
     baekjoon_total = baekjoon_profile.get("solvedCount")
+    if not isinstance(baekjoon_total, int):
+        baekjoon_total = previous_baekjoon_total()
     baekjoon_tier = solved_ac_tier_name(baekjoon_profile.get("tier"))
 
     results: list[PlatformStat] = []
@@ -383,6 +398,19 @@ def update_readme(stats: list[PlatformStat], baekjoon_tier: str | None) -> None:
             f"**{baekjoon_tier}**",
         )
 
+    # 통계가 그대로면 시각만 바꾸는 커밋을 만들지 않는다.
+    # (예전에는 매일 "Last Auto Update" 한 줄만 바뀐 커밋이 쌓였다.)
+    original = README_PATH.read_text(encoding="utf-8")
+    assets_changed = bool(
+        subprocess.run(
+            ["git", "status", "--porcelain", "--", str(ASSETS_PATH)],
+            capture_output=True, text=True, check=False,
+        ).stdout.strip()
+    )
+    if readme == original and not assets_changed:
+        print("[info] 통계 변화 없음: README 를 건드리지 않습니다.")
+        return
+
     readme = replace_block(
         readme,
         "<!-- UPDATED:START -->",
@@ -391,6 +419,7 @@ def update_readme(stats: list[PlatformStat], baekjoon_tier: str | None) -> None:
     )
 
     README_PATH.write_text(readme, encoding="utf-8")
+    print(f"[info] README 갱신: {updated_at}")
 
 
 def main() -> None:
