@@ -171,8 +171,13 @@ def scan_baekjoon() -> list[Path]:
 def scan_codetree() -> list[Path]:
     date_folders: list[Path] = []
 
+    # 날짜(6자리) 폴더만 문제 묶음으로 센다. trail3 같은 개념 정리 폴더는 세지 않는다.
     for root_name in ("Codetree", "CodeTree"):
-        date_folders.extend(child_dirs(Path(root_name)))
+        date_folders.extend(
+            path
+            for path in child_dirs(Path(root_name))
+            if DATE_FOLDER_PATTERN.fullmatch(path.name)
+        )
 
     date_folders.extend(
         path
