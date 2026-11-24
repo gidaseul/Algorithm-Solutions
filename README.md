@@ -81,14 +81,14 @@
 | Platform | Problems | Last Commit |
 |---|---:|---|
 | Baekjoon | 196 / 196 | 2026-11-24 |
-| Programmers | 101 | 2026-06-15 |
+| Programmers | 69 | 2026-06-15 |
 | SWEA | 45 | 2026-04-14 |
 | Codetree | 312 | 2026-05-18 |
 | LeetCode | 20 | 2026-01-30 |
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 674
+**Total Problems:** 642
 <!-- TOTAL:END -->
 
 ---
@@ -138,7 +138,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-11-24 11:12 KST
+🕒 Last Auto Update: 2026-11-24 11:14 KST
 <!-- UPDATED:END -->
 
 ---
