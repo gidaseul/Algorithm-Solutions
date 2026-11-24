@@ -149,7 +149,10 @@ def scan_baekjoon() -> list[Path]:
     if not base.exists():
         return []
 
-    source_extensions = {"*.py", "*.java", "*.cpp", "*.c", "*.kt", "*.js"}
+    source_extensions = {
+        "*.py", "*.java", "*.cpp", "*.cc", "*.c", "*.kt", "*.js",
+        "*.ts", "*.cs", "*.go", "*.rs", "*.swift", "*.rb", "*.sql",
+    }
     problems: list[Path] = []
 
     for item in base.rglob("*"):

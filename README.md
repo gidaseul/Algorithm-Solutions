@@ -11,7 +11,7 @@
 
 <br/>
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=hye0328)](https://solved.ac/hye0328)
+[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=hye0328)](https://solved.ac/hye0328)
 
 <br/><br/>
 
@@ -80,7 +80,7 @@
 <!-- STATS:START -->
 | Platform | Problems | Last Commit |
 |---|---:|---|
-| Baekjoon | 189 / 196 | 2026-04-14 |
+| Baekjoon | 195 / 196 | 2026-04-14 |
 | Programmers | 101 | 2026-06-15 |
 | SWEA | 45 | 2026-04-14 |
 | Codetree | 312 | 2026-05-18 |
@@ -88,14 +88,14 @@
 <!-- STATS:END -->
 
 <!-- TOTAL:START -->
-**Total Problems:** 667
+**Total Problems:** 673
 <!-- TOTAL:END -->
 
 ---
 
-> ⚠️ **Data Sync Notice**
-> - 일부 Baekjoon 문제는 과거 업로드 이력 정리 중으로, 통계에 부분 반영되어 있습니다. (추후에 업데이트 예정에 있습니다.)
-> - 집계 데이터는 GitHub Actions 스케줄 실행 시 순차적으로 보완됩니다.
+> **표 읽는 법**
+> - Baekjoon의 `A / B`는 "이 저장소에 올린 풀이 수 / solved.ac 기준 전체 풀이 수"입니다.
+> - 수치는 매일 GitHub Actions가 집계하고, 값이 바뀐 날에만 README를 갱신합니다.
 
 ---
 
@@ -138,7 +138,7 @@
 ## 🕒 Last Updated
 
 <!-- UPDATED:START -->
-🕒 Last Auto Update: 2026-11-24 10:54 KST
+🕒 Last Auto Update: 2026-11-24 11:05 KST
 <!-- UPDATED:END -->
 
 ---
@@ -149,7 +149,8 @@
 - 📌 각 디렉토리 최신 커밋 날짜 자동 반영  
 - 📌 GitHub API 기반 언어 점유율 계산  
 - 📌 solved.ac API 기반 백준 티어 자동 조회  
-- 📌 매일 GitHub Actions 스케줄 실행  
+- 📌 매일 GitHub Actions 스케줄 실행 (값이 바뀐 날에만 커밋)  
+- 📌 solved.ac 조회가 실패하면 직전 값을 유지  
 
 README는  
 **구조는 수동 관리, 수치는 자동 생성하는 deterministic 시스템**으로 동작합니다.
